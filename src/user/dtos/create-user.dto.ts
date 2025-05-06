@@ -1,5 +1,5 @@
 import { Expose, Transform } from "class-transformer";
-import {  IsBoolean, IsEmail, IsInt, IsNotEmpty, IsOptional, IsString, MinLength } from "class-validator";
+import {  isBoolean, IsBoolean, IsEmail, IsInt, IsNotEmpty, IsOptional, isString, IsString, MinLength } from "class-validator";
 
 export class CreateUserDto{
     @Expose()
@@ -31,6 +31,11 @@ export class CreateUserDto{
     @IsBoolean()
     @Transform(({ value }) => value === 'true')    
     married?: boolean;
+
+    @Expose()
+    @IsOptional()
+    @IsString()
+    password?:string
 
 
 }
