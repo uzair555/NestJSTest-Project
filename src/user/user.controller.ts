@@ -10,8 +10,9 @@ export class UserController {
 
     constructor(private userService: UserService) { }
 
-     @Get(':married')
-     getUser(@Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
+     @Get()
+     getUser(
+         @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
          @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
          @Param() param: GetUserParamDto
 
@@ -20,14 +21,14 @@ export class UserController {
          console.log('====================================');
          console.log(param,"marrieddddddd");
          console.log('====================================');
-        const userService = new UserService();
-        return userService.getAllUser()
+        // const userService = new UserService();
+        return this.userService.getAllUser()
      }
     
     @Get(':id')
     getUserById(@Param('id', ParseIntPipe) id: number) {
-        const userService = new UserService();
-        return userService.getUserById(id)
+        // const userService = new UserService();
+        return this.userService.getUserById(id)
     }
 
     
