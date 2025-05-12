@@ -67,5 +67,28 @@ export class UserService {
        this.userRepository.save(user)
    
    }
+    
+    public async deleteUser(id: number) {
+
+         //Deleting user without cascading
+        //find the user
+
+        let user=await this.userRepository.findOneBy({id})
+        
+        // delete user
+
+        await this.userRepository.delete(id)
+
+        //delete profile
+
+        // await this.profileRepository.delete(user?.profile?.id)
+        if (user?.profile?.id) {
+            await this.profileRepository.delete(user.profile.id);
+        }
+
+        //send responsee
+
+        return {deleted:true}
+   }
 
 }
