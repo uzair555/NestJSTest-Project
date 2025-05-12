@@ -32,16 +32,17 @@ export class User{
     })
     password: string = ''
     @OneToOne(() => Profile, {
-        cascade: ['insert']
+        cascade: ['insert'],
+        eager:true
     })
     @JoinColumn()
     profile?:Profile
     
     @CreateDateColumn()
-    createdAt: Date = new Date;
+    createdAt?: Date ;
     @UpdateDateColumn()
-    updateAt: Date = new Date;
+    updateAt?: Date ;
 
     @DeleteDateColumn()
-    deletedAt: Date = new Date;
+    deletedAt?: Date 
 }

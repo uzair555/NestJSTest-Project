@@ -16,8 +16,22 @@ export class UserService {
     ) { }
     
 
-   public async getAllUser() {
-       return await this.userRepository.find()
+    public async getAllUser() {
+        // without eager loading means you are not defining realtion
+        // return await this.userRepository.find()
+
+
+        // with eager loading means you are defining realtion
+
+    //    return await this.userRepository.find({
+    //     //    withDeleted:true,
+    //        relations: {
+    //            profile:true
+    //        }
+        //    })
+        
+        //another way of eager loading is it can be true from entity 
+        return await this.userRepository.find()
     }
 
     getUserById() {
