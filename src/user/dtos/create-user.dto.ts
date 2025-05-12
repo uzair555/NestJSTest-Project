@@ -1,5 +1,6 @@
 import { Expose, Transform } from "class-transformer";
 import {  isBoolean, IsBoolean, IsEmail, IsInt, isNotEmpty, IsNotEmpty, IsOptional, isString, IsString, MaxLength, MinLength } from "class-validator";
+import type { CreateProfileDto } from "src/profile/dto/create-profile.dto";
 
 export class CreateUserDto{
 
@@ -21,6 +22,9 @@ export class CreateUserDto{
     @MinLength(8)
     @MaxLength(100)
     password?: string
+
+    @IsOptional()
+    profile?:CreateProfileDto
 
     // @Expose()
     // @IsInt({ message: 'ID must be an integer' })

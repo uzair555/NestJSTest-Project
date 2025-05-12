@@ -4,21 +4,21 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 export class Profile {
 
     @PrimaryGeneratedColumn()
-    id: number = 1
+    id?: number
 
     @Column({
         type: 'varchar',
         nullable: true,
         length: 100
     })
-    firstName: string = '';
+    firstName?: string ;
 
     @Column({
         type: 'varchar',
         nullable: true,
         length: 100
     })
-    lastName: string = '';
+    lastName?: string;
 
     @Column(
         {
@@ -27,23 +27,23 @@ export class Profile {
             length: 10
         }
     )
-    gender: string = '';
+    gender?: string;
 
     @Column({
         type: "timestamp",
         nullable:true
     })
-    dateofbirth: Date = new Date
+    dateofbirth?: Date 
 
     @Column({
         type: "text",
         nullable: true
     })
-    bio: string = ''
+    bio?: string
 
     @Column({
         type: "text",
         nullable: true
     })
-    profileImage: string = ''
+    profileImage?: string 
 }
