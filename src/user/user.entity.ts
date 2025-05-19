@@ -31,7 +31,7 @@ export class User{
         length: 100
     })
     password: string = ''
-    @OneToOne(() => Profile, {
+    @OneToOne(() => Profile,(profile)=>profile.user, {
         cascade: ['insert',],
         eager:true
     })
